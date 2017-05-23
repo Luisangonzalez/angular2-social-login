@@ -3,6 +3,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { User }           from './profile.interface';
 import {Observable} from 'rxjs/Rx';
 import { InterceptorService } from 'ng2-interceptors';
+import { environment } from '../../environments/environment';
 
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
@@ -12,10 +13,12 @@ import 'rxjs/add/operator/catch';
 export class AdminService {
      // Resolve HTTP using the constructor
      constructor (private _http: InterceptorService) {
-         
+
      }
-     private commentsUrl = 'https://cuppa-angular2-oauth.herokuapp.com/api/profile'; 
-     
+
+    private authServerBaseUrl = environment.AUTH_SERVER_URL;
+    private commentsUrl = this.authServerBaseUrl + '/api/profile'; 
+
 getProfile() : Observable<any> {
 
          // ...using get request

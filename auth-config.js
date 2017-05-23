@@ -1,7 +1,8 @@
+var config = require('dotenv').config();
+
 module.exports = {
   // App Settings
-  //MONGO_URI: process.env.MONGO_URI || 'mongodb://localhost/cuppaOAuth',
-  MONGO_URI: process.env.MONGO_URI || 'mongodb://username:password@ds111489.mlab.com:11489/cuppaoauth',
+  MONGO_URI: process.env.MONGO_URI || 'YOUR_UNIQUE_MONDB_URI',
   TOKEN_SECRET: process.env.TOKEN_SECRET || 'YOUR_UNIQUE_JWT_TOKEN_SECRET',
 
   // OAuth 2.0

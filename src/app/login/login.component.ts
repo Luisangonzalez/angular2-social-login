@@ -1,4 +1,5 @@
 import { Component }        from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Component({
   template: `
@@ -7,7 +8,9 @@ import { Component }        from '@angular/core';
     </div>`
 })
 export class LoginComponent {
-   private authServerBaseUrl = 'https://cuppa-angular2-oauth.herokuapp.com';
+   private authServerBaseUrl = environment.AUTH_SERVER_URL;
+   private googleClientId = environment.GOOGLE_CLIENT_ID;
+   
    private config = {
    "loginRoute":"login",
    "linkedin":{
@@ -22,7 +25,7 @@ export class LoginComponent {
    },
    "google":{
      "authEndpoint": this.authServerBaseUrl+"/auth/google",
-     "clientId":"77954512562-eftl8up04q1g3aha2mjg5h6bgel9svkk.apps.googleusercontent.com",
+     "clientId": this.googleClientId,
      "redirectURI" : this.authServerBaseUrl+"/admin"
    }
  };
